@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tavinathanson/maplabeler/issues"
   },
-  "homepage": "https://github.com/tavinathanson/maplabeler"
+  "homepage": "https://github.com/tavinathanson/maplabeler",
+  "dependencies": {
+    "express": "^4.9.7"
+  }
 }
