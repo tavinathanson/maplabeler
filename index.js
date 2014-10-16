@@ -1,18 +1,15 @@
-var express = require('express')
-var swig  = require('swig');
-var app = express();
+var express = require('express'),
+    swig  = require('swig'),
+    app = express();
 
 app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
-app.set('view engine', 'swig')
+app.use(express.static(__dirname + '/node_modules'))
+app.set('view engine', 'html')
+app.engine('html', swig.renderFile);
+app.set('views', __dirname);
 
 app.get('/', function(request, response) {
-    var template = swig.compileFile('index.html');
-    var output = template({
-        title: 'Title',
-        message: 'Message'
-    });
-    response.send(output)
+    response.render('index.html', {});
 })
 
 app.listen(app.get('port'), function() {
